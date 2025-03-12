@@ -19,21 +19,26 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Arial", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "#f4f4f9",
+        foreground: "#333",
+        "tigest-text": "#333",
+        "tigest-bg": "#f4f4f9",
         primary: {
-          DEFAULT: "#2563eb",
-          hover: "#1d4ed8",
-          light: "#dbeafe",
+          DEFAULT: "#007bff",
+          hover: "#0056b3",
+          light: "#e6f2ff",
         },
         success: "#22c55e",
         error: "#ef4444",
         price: {
-          highlight: "#3b82f6",
+          highlight: "#007bff",
           muted: "#64748b",
         },
       },

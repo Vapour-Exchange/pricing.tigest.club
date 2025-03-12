@@ -48,19 +48,19 @@ export const CountdownTimer = () => {
     <div className="flex gap-2 justify-center text-sm font-medium">
       <div className="flex flex-col items-center">
         <span className="bg-primary-light text-primary px-2 py-1 rounded">{timeLeft.days}</span>
-        <span className="text-xs text-gray-500">days</span>
+        <span className="text-xs text-tigest-text">days</span>
       </div>
       <div className="flex flex-col items-center">
         <span className="bg-primary-light text-primary px-2 py-1 rounded">{timeLeft.hours}</span>
-        <span className="text-xs text-gray-500">hours</span>
+        <span className="text-xs text-tigest-text">hours</span>
       </div>
       <div className="flex flex-col items-center">
         <span className="bg-primary-light text-primary px-2 py-1 rounded">{timeLeft.minutes}</span>
-        <span className="text-xs text-gray-500">mins</span>
+        <span className="text-xs text-tigest-text">mins</span>
       </div>
       <div className="flex flex-col items-center">
         <span className="bg-primary-light text-primary px-2 py-1 rounded">{timeLeft.seconds}</span>
-        <span className="text-xs text-gray-500">secs</span>
+        <span className="text-xs text-tigest-text">secs</span>
       </div>
     </div>
   );
