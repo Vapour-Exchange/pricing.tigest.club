@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/CountdownTimer";
@@ -9,7 +9,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
 
 const Features = [
   {
@@ -70,14 +69,14 @@ export default function Index() {
   const visibleFeatures = showAllFeatures ? Features : Features.slice(0, 5);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-tigest-bg">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center space-y-4 mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-hover">
+          <h1 className="text-4xl md:text-5xl font-bold text-tigest-text">
             Choose Your Plan
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Unlock powerful tools for your community with our flexible pricing options
+          <p className="text-lg text-tigest-text/80 max-w-2xl mx-auto">
+            Unlock powerful tools for your community
           </p>
         </div>
 
@@ -85,43 +84,43 @@ export default function Index() {
           {/* Individual Plan */}
           <div className="relative p-8 rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-lg animate-fade-in">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Individual</h2>
+              <h2 className="text-2xl font-bold text-tigest-text">Individual</h2>
               <div className="space-y-1">
-                <p className="text-3xl font-bold text-price-highlight">$400<span className="text-lg text-price-muted">/month</span></p>
-                <p className="text-sm text-gray-500">or $900/quarter (Save 25%)</p>
+                <p className="text-3xl font-bold text-primary">$400<span className="text-lg text-price-muted">/month</span></p>
+                <p className="text-sm text-tigest-text/70">or $900/quarter (Save 25%)</p>
               </div>
-              <p className="text-sm text-gray-600">Perfect for solo creators</p>
-              <Button className="w-full bg-primary hover:bg-primary-hover">Get Started</Button>
+              <p className="text-sm text-tigest-text/70">Perfect for solo creators</p>
+              <Button className="w-full bg-primary hover:bg-primary-hover text-white">Get Started</Button>
             </div>
           </div>
 
           {/* Basic Plan */}
           <div className="relative p-8 rounded-2xl border-2 border-primary bg-white shadow-lg transform transition-all duration-200 hover:scale-105 animate-fade-in">
-            <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary">Most Popular</Badge>
+            <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white">Most Popular</Badge>
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Basic</h2>
+              <h2 className="text-2xl font-bold text-tigest-text">Basic</h2>
               <div className="space-y-1">
-                <p className="text-3xl font-bold text-price-highlight">$1,000<span className="text-lg text-price-muted">/month</span></p>
+                <p className="text-3xl font-bold text-primary">$1,000<span className="text-lg text-price-muted">/month</span></p>
                 <p className="text-sm text-primary font-medium">Special offer: $2,000/quarter</p>
                 <div className="mt-2">
                   <CountdownTimer />
                 </div>
               </div>
-              <p className="text-sm text-gray-600">Best for growing communities</p>
-              <Button className="w-full bg-primary hover:bg-primary-hover">Get Started</Button>
+              <p className="text-sm text-tigest-text/70">Best for growing communities</p>
+              <Button className="w-full bg-primary hover:bg-primary-hover text-white">Get Started</Button>
             </div>
           </div>
 
           {/* Growth Plan */}
           <div className="relative p-8 rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-lg animate-fade-in">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Growth</h2>
+              <h2 className="text-2xl font-bold text-tigest-text">Growth</h2>
               <div className="space-y-1">
-                <p className="text-3xl font-bold text-price-highlight">$5,000<span className="text-lg text-price-muted">/3 months</span></p>
-                <p className="text-sm text-gray-500">10-day trial for $500</p>
+                <p className="text-3xl font-bold text-primary">$5,000<span className="text-lg text-price-muted">/3 months</span></p>
+                <p className="text-sm text-tigest-text/70">10-day trial for $500</p>
               </div>
-              <p className="text-sm text-gray-600">For established communities</p>
-              <Button className="w-full bg-primary hover:bg-primary-hover">Get Started</Button>
+              <p className="text-sm text-tigest-text/70">For established communities</p>
+              <Button className="w-full bg-primary hover:bg-primary-hover text-white">Get Started</Button>
             </div>
           </div>
         </div>
@@ -131,22 +130,22 @@ export default function Index() {
           <table className="w-full">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-4 px-4">Features</th>
-                <th className="text-center py-4 px-4">Individual</th>
-                <th className="text-center py-4 px-4">Basic</th>
-                <th className="text-center py-4 px-4">Growth</th>
+                <th className="text-left py-4 px-4 text-tigest-text">Features</th>
+                <th className="text-center py-4 px-4 text-tigest-text">Individual</th>
+                <th className="text-center py-4 px-4 text-tigest-text">Basic</th>
+                <th className="text-center py-4 px-4 text-tigest-text">Growth</th>
               </tr>
             </thead>
             <tbody>
               {visibleFeatures.map((feature, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
-                  <td className="py-4 px-4">{feature.name}</td>
+                  <td className="py-4 px-4 text-tigest-text">{feature.name}</td>
                   <td className="text-center py-4 px-4">
                     {feature.individual.included ? (
                       <div className="flex flex-col items-center">
                         <CheckCircle2 className="text-success w-5 h-5" />
                         {feature.individual.details && (
-                          <span className="text-xs text-gray-500 mt-1">{feature.individual.details}</span>
+                          <span className="text-xs text-tigest-text/70 mt-1">{feature.individual.details}</span>
                         )}
                       </div>
                     ) : (
@@ -158,7 +157,7 @@ export default function Index() {
                       <div className="flex flex-col items-center">
                         <CheckCircle2 className="text-success w-5 h-5" />
                         {feature.basic.details && (
-                          <span className="text-xs text-gray-500 mt-1">{feature.basic.details}</span>
+                          <span className="text-xs text-tigest-text/70 mt-1">{feature.basic.details}</span>
                         )}
                       </div>
                     ) : (
@@ -170,7 +169,7 @@ export default function Index() {
                       <div className="flex flex-col items-center">
                         <CheckCircle2 className="text-success w-5 h-5" />
                         {feature.growth.details && (
-                          <span className="text-xs text-gray-500 mt-1">{feature.growth.details}</span>
+                          <span className="text-xs text-tigest-text/70 mt-1">{feature.growth.details}</span>
                         )}
                       </div>
                     ) : (
@@ -183,7 +182,7 @@ export default function Index() {
           </table>
           <Button
             variant="ghost"
-            className="mt-4 mx-auto flex items-center gap-2"
+            className="mt-4 mx-auto flex items-center gap-2 text-tigest-text"
             onClick={() => setShowAllFeatures(!showAllFeatures)}
           >
             {showAllFeatures ? (
@@ -200,8 +199,8 @@ export default function Index() {
 
         {/* FAQ Section */}
         <div className="max-w-2xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible>
+          <h2 className="text-2xl font-bold text-center mb-8 text-tigest-text">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="text-tigest-text">
             {FAQs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
@@ -213,8 +212,10 @@ export default function Index() {
 
         {/* Contact Footer */}
         <div className="text-center">
-          <p className="text-gray-600 mb-4">Need a custom plan for your enterprise?</p>
-          <Button variant="outline">Contact Sales</Button>
+          <p className="text-tigest-text/70 mb-4">Need a custom plan for your enterprise?</p>
+          <Button variant="outline" className="text-tigest-text border-tigest-text/20 hover:bg-tigest-text/5">
+            Contact Sales
+          </Button>
         </div>
       </div>
     </div>
