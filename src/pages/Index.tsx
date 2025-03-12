@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { FeatureTooltip } from "@/components/FeatureTooltip";
 import { CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
 import {
   Accordion,
@@ -10,42 +12,126 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Complete feature set with tooltips
 const Features = [
   {
     name: "Reply Agent",
+    description: "AI agents that automatically reply to your community messages",
     individual: { included: true, details: "1 agent, 60 replies/day" },
     basic: { included: true, details: "1 agent, 100 replies/day" },
     growth: { included: true, details: "3 agents, 100 replies/day" },
   },
   {
     name: "Mention Agent",
+    description: "AI agents that respond to social media mentions of your brand",
     individual: { included: true, details: "1 agent, 50 mentions/day" },
     basic: { included: true, details: "1 agent, 100 mentions/day" },
     growth: { included: true, details: "2 agents, 100 mentions/day" },
   },
   {
     name: "Raid Agent",
+    description: "AI agents that manage community raids and events",
     individual: { included: true, details: "Up to 1000 members" },
     basic: { included: true, details: "No limit" },
     growth: { included: true, details: "No cap" },
   },
   {
+    name: "Onboarding Time",
+    description: "Time required to set up and configure your agents",
+    individual: { included: true, details: "1 day" },
+    basic: { included: true, details: "2 days" },
+    growth: { included: true, details: "4 days" },
+  },
+  {
+    name: "Lists per agent",
+    description: "Number of separate lists each agent can manage",
+    individual: { included: true, details: "2" },
+    basic: { included: true, details: "5" },
+    growth: { included: true, details: "5" },
+  },
+  {
+    name: "Personas per agent",
+    description: "Different AI personalities your agents can use",
+    individual: { included: true, details: "2" },
+    basic: { included: true, details: "3" },
+    growth: { included: true, details: "3" },
+  },
+  {
+    name: "Max members/list per agent",
+    description: "Maximum number of community members each list can contain",
+    individual: { included: true, details: "150" },
+    basic: { included: true, details: "200" },
+    growth: { included: true, details: "200" },
+  },
+  {
+    name: "Premium LLM models",
+    description: "Access to advanced AI language models for better responses",
+    individual: { included: false },
+    basic: { included: true },
+    growth: { included: true },
+  },
+  {
     name: "Auto Engagement",
+    description: "Automated engagement with your community members",
     individual: { included: false },
     basic: { included: true, details: "10 agents" },
     growth: { included: true, details: "15 agents" },
   },
   {
+    name: "Hire Engagement Functionality",
+    description: "Ability to hire additional engagement services",
+    individual: { included: false },
+    basic: { included: false },
+    growth: { included: true, details: "10 times/month" },
+  },
+  {
+    name: "Access to Social Graph",
+    description: "View and analyze your community's social connections",
+    individual: { included: false },
+    basic: { included: true },
+    growth: { included: true },
+  },
+  {
+    name: "Telegram Community Agents",
+    description: "AI agents that work within Telegram communities",
+    individual: { included: false },
+    basic: { included: true, details: "up to 4" },
+    growth: { included: true, details: "up to 4" },
+  },
+  {
+    name: "Access to Post Suggestions",
+    description: "AI-generated content ideas for your community",
+    individual: { included: false },
+    basic: { included: false },
+    growth: { included: true },
+  },
+  {
+    name: "Analytics Access",
+    description: "Detailed metrics and performance data for your community",
+    individual: { included: false },
+    basic: { included: false },
+    growth: { included: true },
+  },
+  {
+    name: "Giveaway for Community",
+    description: "Budget for community rewards and incentives",
+    individual: { included: false },
+    basic: { included: false },
+    growth: { included: true, details: "up to $3000" },
+  },
+  {
     name: "Account Manager",
+    description: "Personal support for your account needs",
     individual: { included: false },
     basic: { included: true, details: "Not dedicated" },
     growth: { included: true, details: "Dedicated" },
   },
   {
-    name: "Analytics Access",
+    name: "Access to Campaign Agents",
+    description: "Specialized AI agents for marketing campaigns",
     individual: { included: false },
     basic: { included: false },
-    growth: { included: true },
+    growth: { included: true, details: "Charged extra" },
   },
 ];
 
@@ -66,7 +152,13 @@ const FAQs = [
 
 export default function Index() {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
-  const visibleFeatures = showAllFeatures ? Features : Features.slice(0, 5);
+  const visibleFeatures = showAllFeatures ? Features : Features.slice(0, 8);
+
+  // Calculate savings percentage for Basic quarterly plan
+  const basicMonthlyPrice = 1000;
+  const basicQuarterlyPrice = 2000;
+  const basicQuarterlyMonthlyEquivalent = basicQuarterlyPrice / 3;
+  const savingsPercentage = Math.round((1 - (basicQuarterlyMonthlyEquivalent / basicMonthlyPrice)) * 100);
 
   return (
     <div className="min-h-screen bg-tigest-bg">
@@ -101,7 +193,10 @@ export default function Index() {
               <h2 className="text-2xl font-bold text-tigest-text">Basic</h2>
               <div className="space-y-1">
                 <p className="text-3xl font-bold text-primary">$1,000<span className="text-lg text-price-muted">/month</span></p>
-                <p className="text-sm text-primary font-medium">Special offer: $2,000/quarter</p>
+                <div className="flex items-center">
+                  <p className="text-sm text-primary font-medium">Special offer: $2,000/quarter</p>
+                  <Badge className="ml-2 bg-success text-white">Save {savingsPercentage}%</Badge>
+                </div>
                 <div className="mt-2">
                   <CountdownTimer />
                 </div>
@@ -139,7 +234,10 @@ export default function Index() {
             <tbody>
               {visibleFeatures.map((feature, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
-                  <td className="py-4 px-4 text-tigest-text">{feature.name}</td>
+                  <td className="py-4 px-4 text-tigest-text flex items-center">
+                    {feature.name}
+                    <FeatureTooltip description={feature.description} />
+                  </td>
                   <td className="text-center py-4 px-4">
                     {feature.individual.included ? (
                       <div className="flex flex-col items-center">

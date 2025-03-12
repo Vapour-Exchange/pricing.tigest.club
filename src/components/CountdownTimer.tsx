@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 export const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
+    days: 29,
     hours: 0,
     minutes: 0,
     seconds: 0
@@ -12,7 +12,11 @@ export const CountdownTimer = () => {
   useEffect(() => {
     // Calculate time left function
     const calculateTimeLeft = () => {
-      const difference = new Date('2025-03-13').getTime() - new Date().getTime();
+      // Calculate end date (29 days from now)
+      const endDate = new Date();
+      endDate.setDate(endDate.getDate() + 29);
+      
+      const difference = endDate.getTime() - new Date().getTime();
       let newTimeLeft = {
         days: 0,
         hours: 0,
