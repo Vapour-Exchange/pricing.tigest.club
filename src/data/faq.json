@@ -1,14 +1,16 @@
 [
   {
     "question": "What payment methods do you accept?",
-    "answer": "We accept all major credit cards, PayPal, and bank transfers for business accounts."
+    "answer": "We accept all major credit cards and crypto on all major chains"
   },
   {
     "question": "Can I upgrade or downgrade my plan?",
     "answer": "Yes, you can change your plan at any time. Changes will be reflected in your next billing cycle."
   },
   {
-    "question": "What happens after the trial period?",
-    "answer": "After the trial period ends, you'll be automatically switched to the selected plan unless you cancel."
+    "question": "How to get started? ",
+    "answer": "Please book a call here - ",
+    "link": "https://cal.com/kunaal/tigest-discovery-call",
+    "linkText": "Book call"
   }
 ]
