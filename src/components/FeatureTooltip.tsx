@@ -1,30 +1,29 @@
-
 import React from 'react';
-import { Info } from 'lucide-react';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { InfoIcon } from "lucide-react";
 
 interface FeatureTooltipProps {
   description: string;
 }
 
-export const FeatureTooltip: React.FC<FeatureTooltipProps> = ({ description }) => {
+export function FeatureTooltip({ description }: FeatureTooltipProps) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={300}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <span className="inline-flex items-center ml-1 cursor-help">
-            <Info className="h-4 w-4 text-gray-400" />
+          <span className="inline-flex cursor-help">
+            <InfoIcon className="h-4 w-4 text-gray-400" />
           </span>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent side="right" align="start" className="max-w-xs bg-gray-800 text-white border-gray-700">
           <p className="text-sm">{description}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
-};
+}
