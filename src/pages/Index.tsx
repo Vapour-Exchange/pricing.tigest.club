@@ -48,7 +48,7 @@ export default function Index() {
                 <p className="text-sm text-gray-400">or $900/quarter (Save 25%)</p>
               </div>
               <p className="text-sm text-gray-400">Perfect for solo creators</p>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full align-bottom bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ export default function Index() {
                 <CountdownTimer targetDate={PROMOTION_END_DATE} />
               </div>
               <p className="text-sm text-gray-400">Best for growing communities</p>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
             </div>
           </div>
 
@@ -82,7 +82,7 @@ export default function Index() {
                 <p className="text-sm text-gray-400">10-day trial for $500</p>
               </div>
               <p className="text-sm text-gray-400">For established communities</p>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
             </div>
           </div>
         </div>
