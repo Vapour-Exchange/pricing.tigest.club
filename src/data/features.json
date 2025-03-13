@@ -30,6 +30,7 @@
   {
     "name": "Lists per agent",
     "description": "Number of separate lists each agent can manage",
+    "displayStyle": "number",
     "individual": { "included": true, "details": "2" },
     "basic": { "included": true, "details": "5" },
     "growth": { "included": true, "details": "5" }
@@ -37,6 +38,7 @@
   {
     "name": "Personas per agent",
     "description": "Different AI personalities your agents can use",
+    "displayStyle": "number",
     "individual": { "included": true, "details": "2" },
     "basic": { "included": true, "details": "3" },
     "growth": { "included": true, "details": "3" }

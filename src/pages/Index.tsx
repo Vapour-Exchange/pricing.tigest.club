@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { FeatureTooltip } from "@/components/FeatureTooltip";
-import { CheckCircle2, XCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -104,43 +104,109 @@ export default function Index() {
                 {visibleFeatures.map((feature, index) => (
                   <tr key={index} className={`border-b border-gray-800 hover:bg-gray-800/50 transition-colors ${index % 2 === 0 ? 'bg-gray-900/50' : 'bg-transparent'}`}>
                     <td className="py-4 px-6 text-white flex items-center gap-2">
-                      {feature.name}
+                      {feature.link ? (
+                        <a
+                          href={feature.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 hover:text-blue-400"
+                        >
+                          {feature.name}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      ) : (
+                        feature.name
+                      )}
                       <FeatureTooltip description={feature.description} />
                     </td>
                     <td className="text-center py-4 px-6">
                       {feature.individual.included ? (
                         <div className="flex flex-col items-center">
-                          <CheckCircle2 className="text-green-500 w-5 h-5" />
-                          {feature.individual.details && (
-                            <span className="text-xs text-gray-400 mt-1">{feature.individual.details}</span>
+                          {feature.displayStyle === "number" ? (
+                            <span className="text-gray-400">{feature.individual.details}</span>
+                          ) : (
+                            <CheckCircle2 className="text-green-700 w-5 h-5" />
+                          )}
+                          {feature.individual.details && feature.displayStyle !== "number" && (
+                            <div className="text-xs text-gray-400 mt-1">
+                              {feature.individual.link ? (
+                                <a
+                                  href={feature.individual.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1 text-blue-400 hover:underline"
+                                >
+                                  {feature.individual.details}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              ) : (
+                                feature.individual.details
+                              )}
+                            </div>
                           )}
                         </div>
                       ) : (
-                        <XCircle className="text-gray-600 w-5 h-5 mx-auto opacity-50" />
+                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
                       )}
                     </td>
                     <td className="text-center py-4 px-6 bg-blue-900/10">
                       {feature.basic.included ? (
                         <div className="flex flex-col items-center">
-                          <CheckCircle2 className="text-green-500 w-5 h-5" />
-                          {feature.basic.details && (
-                            <span className="text-xs text-gray-400 mt-1">{feature.basic.details}</span>
+                          {feature.displayStyle === "number" ? (
+                            <span className="text-gray-400">{feature.basic.details}</span>
+                          ) : (
+                            <CheckCircle2 className="text-green-700 w-5 h-5" />
+                          )}
+                          {feature.basic.details && feature.displayStyle !== "number" && (
+                            <div className="text-xs text-gray-400 mt-1">
+                              {feature.basic.link ? (
+                                <a
+                                  href={feature.basic.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1 text-blue-400 hover:underline"
+                                >
+                                  {feature.basic.details}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              ) : (
+                                feature.basic.details
+                              )}
+                            </div>
                           )}
                         </div>
                       ) : (
-                        <XCircle className="text-gray-600 w-5 h-5 mx-auto opacity-50" />
+                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
                       )}
                     </td>
                     <td className="text-center py-4 px-6">
                       {feature.growth.included ? (
                         <div className="flex flex-col items-center">
-                          <CheckCircle2 className="text-green-500 w-5 h-5" />
-                          {feature.growth.details && (
-                            <span className="text-xs text-gray-400 mt-1">{feature.growth.details}</span>
+                          {feature.displayStyle === "number" ? (
+                            <span className="text-gray-400">{feature.growth.details}</span>
+                          ) : (
+                            <CheckCircle2 className="text-green-700 w-5 h-5" />
+                          )}
+                          {feature.growth.details && feature.displayStyle !== "number" && (
+                            <div className="text-xs text-gray-400 mt-1">
+                              {feature.growth.link ? (
+                                <a
+                                  href={feature.growth.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1 text-blue-400 hover:underline"
+                                >
+                                  {feature.growth.details}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              ) : (
+                                feature.growth.details
+                              )}
+                            </div>
                           )}
                         </div>
                       ) : (
-                        <XCircle className="text-gray-600 w-5 h-5 mx-auto opacity-50" />
+                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
                       )}
                     </td>
                   </tr>
@@ -172,7 +238,24 @@ export default function Index() {
             {FAQs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-gray-800">
                 <AccordionTrigger className="hover:text-blue-400">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-gray-400">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-gray-400">
+                  {faq.link ? (
+                    <div>
+                      {faq.answer}{" "}
+                      <a
+                        href={faq.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:underline inline-flex items-center gap-1"
+                      >
+                        {faq.linkText || "Learn more"}
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  ) : (
+                    faq.answer
+                  )}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
