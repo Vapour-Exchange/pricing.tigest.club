@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { FeatureTooltip } from "@/components/FeatureTooltip";
-import { CheckCircle2, XCircle, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronDown, ChevronUp, ExternalLink, Sparkles } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Features from "@/data/features.json";
 import FAQs from "@/data/faq.json";
 
@@ -27,196 +29,323 @@ export default function Index() {
   const savingsPercentage = Math.round((1 - (basicQuarterlyMonthlyEquivalent / basicMonthlyPrice)) * 100);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Choose Your Plan
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-indigo-950 to-purple-950 text-white">
+      {/* Enhanced decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute top-1/3 -left-40 w-96 h-96 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute -bottom-40 left-1/2 w-96 h-96 bg-indigo-600 rounded-full opacity-10 blur-3xl"></div>
+
+        {/* Additional decorative elements */}
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full opacity-5 blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full opacity-5 blur-3xl"></div>
+
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
+      </div>
+
+      <div className="container relative mx-auto px-4 py-20">
+        {/* Enhanced hero section */}
+        <div className="text-center space-y-6 mb-20 animate-fade-in">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-sm font-medium mb-4 backdrop-blur-md shadow-lg">
+            <Sparkles className="w-4 h-4 mr-2" />
+            Premium AI Community Management
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-300">
+            Elevate Your Community
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Unlock powerful tools for your community
+          <p className="text-xl text-blue-100/80 max-w-2xl mx-auto">
+            Enterprise-grade AI tools for serious community builders
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        {/* Enhanced premium pricing cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {/* Individual Plan */}
-          <div className="relative p-8 rounded-2xl border border-gray-800 bg-gray-900/50 shadow-sm transition-all duration-200 hover:shadow-lg animate-fade-in">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Individual</h2>
-              <div className="space-y-1">
-                <p className="text-3xl font-bold text-white">$400<span className="text-lg text-gray-400">/month</span></p>
-                <p className="text-sm text-gray-400">or $900/quarter (Save 25%)</p>
+          <Card className="relative overflow-hidden border-0 bg-gradient-to-b from-indigo-900/40 to-indigo-950/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-blue-900/20 hover:shadow-2xl group">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 border border-indigo-700/20 rounded-lg pointer-events-none"></div>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl font-bold text-white">Individual</CardTitle>
+              <CardDescription className="text-blue-200/70">Perfect for solo creators</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-white">$400</span>
+                  <span className="text-lg text-blue-300/70 ml-2">/month</span>
+                </div>
+                <p className="text-sm text-blue-300/70">$900 billed quarterly</p>
               </div>
-              <p className="text-sm text-gray-400">Perfect for solo creators</p>
-              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full align-bottom bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
-            </div>
-          </div>
 
-          {/* Basic Plan */}
-          <div className="relative p-8 rounded-2xl border border-blue-500 bg-gray-900/50 shadow-lg transform transition-all duration-200 hover:scale-105 animate-fade-in">
-            <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white">Most Popular</Badge>
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Basic</h2>
-              <div className="space-y-1">
-                <p className="text-3xl font-bold text-white">$1,000<span className="text-lg text-gray-400">/month</span></p>
-                <div className="flex items-center">
-                  <p className="text-sm text-blue-400 font-medium">Special offer: $2,000/quarter</p>
-                  <Badge className="ml-2 bg-green-600 text-white">Save {savingsPercentage}%</Badge>
+              <div className="space-y-3 pt-4">
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">1 Reply Agent (60 replies/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">1 Mention Agent (50 mentions/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Community Raid Agent</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Premium LLM models access</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between text-xs text-gray-400 bg-gray-800/50 rounded-lg p-2">
+            </CardContent>
+            <CardFooter className="pt-4">
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")}
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 border-0 shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 transition-all duration-300">
+                Get Started
+              </Button>
+            </CardFooter>
+          </Card>
+
+          {/* Basic Plan - Badge moved inside the card */}
+          <Card className="relative overflow-hidden border-0 bg-gradient-to-b from-purple-900/40 to-indigo-950/40 backdrop-blur-md shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20 hover:shadow-2xl z-10 group">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute -top-px left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500"></div>
+            <div className="absolute inset-0 border border-purple-700/30 rounded-lg pointer-events-none"></div>
+
+            <CardHeader className="pb-4">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl font-bold text-white">Basic</CardTitle>
+                <Badge className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-0 shadow-lg py-1">
+                  Most Popular
+                </Badge>
+              </div>
+              <CardDescription className="text-blue-200/70">Best for growing communities</CardDescription>
+            </CardHeader>
+
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-white">$1,000</span>
+                  <span className="text-lg text-blue-300/70 ml-2">/month</span>
+                </div>
+                <div className="flex items-center">
+                  <p className="text-sm text-blue-300">$2,000 billed quarterly</p>
+                  <Badge className="ml-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white border-0">Save {savingsPercentage}%</Badge>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between text-xs text-blue-200 bg-indigo-950/70 rounded-lg p-3 border border-indigo-800/50 backdrop-blur-md">
                 <span className="whitespace-nowrap mr-2">Limited time offer ends:</span>
                 <CountdownTimer targetDate={PROMOTION_END_DATE} />
               </div>
-              <p className="text-sm text-gray-400">Best for growing communities</p>
-              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
-            </div>
-          </div>
+
+              <div className="space-y-3 pt-4">
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">1 Reply Agent (100 replies/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">1 Mention Agent (100 mentions/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Auto Engagement (10 agents)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Access to Social Graph</span>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="pt-4">
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")}
+                className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 border-0 shadow-lg shadow-purple-900/30 hover:shadow-purple-500/30 transition-all duration-300">
+                Get Started
+              </Button>
+            </CardFooter>
+          </Card>
 
           {/* Growth Plan */}
-          <div className="relative p-8 rounded-2xl border border-gray-800 bg-gray-900/50 shadow-sm transition-all duration-200 hover:shadow-lg animate-fade-in">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Growth</h2>
-              <div className="space-y-1">
-                <p className="text-3xl font-bold text-white">$5,000<span className="text-lg text-gray-400">/3 months</span></p>
-                <p className="text-sm text-gray-400">10-day trial for $500</p>
+          <Card className="relative overflow-hidden border-0 bg-gradient-to-b from-indigo-900/40 to-indigo-950/40 backdrop-blur-md shadow-xl transition-all duration-300 hover:shadow-indigo-900/20 hover:shadow-2xl group">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 border border-indigo-700/20 rounded-lg pointer-events-none"></div>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl font-bold text-white">Growth</CardTitle>
+              <CardDescription className="text-blue-200/70">For established communities</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-white">$5,000</span>
+                  <span className="text-lg text-blue-300/70 ml-2">/quarter</span>
+                </div>
+                <p className="text-sm text-blue-300/70">10-day trial for $500</p>
               </div>
-              <p className="text-sm text-gray-400">For established communities</p>
-              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
-            </div>
-          </div>
+
+              <div className="space-y-3 pt-4">
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">3 Reply Agents (100 replies/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">2 Mention Agents (100 mentions/day)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Auto Engagement (15 agents)</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-blue-400 w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-100">Dedicated Account Manager</span>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="pt-4">
+              <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")}
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 border-0 shadow-lg shadow-indigo-900/20 hover:shadow-indigo-900/40 transition-all duration-300">
+                Get Started
+              </Button>
+            </CardFooter>
+          </Card>
         </div>
 
-        {/* Features Comparison */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-center mb-8 text-white">Feature Comparison</h2>
-          <div className="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/30">
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th className="text-left py-5 px-6 text-gray-400 font-medium text-sm uppercase tracking-wider border-b border-gray-800">Features</th>
-                  <th className="text-center py-5 px-6 text-gray-400 font-medium text-sm uppercase tracking-wider border-b border-gray-800">Individual</th>
-                  <th className="text-center py-5 px-6 text-gray-400 font-medium text-sm uppercase tracking-wider border-b border-gray-800 bg-blue-900/10">Basic</th>
-                  <th className="text-center py-5 px-6 text-gray-400 font-medium text-sm uppercase tracking-wider border-b border-gray-800">Growth</th>
-                </tr>
-              </thead>
-              <tbody>
-                {visibleFeatures.map((feature, index) => (
-                  <tr key={index} className={`border-b border-gray-800 hover:bg-gray-800/50 transition-colors ${index % 2 === 0 ? 'bg-gray-900/50' : 'bg-transparent'}`}>
-                    <td className="py-4 px-6 text-white flex items-center gap-2">
-                      {feature.link ? (
-                        <a
-                          href={feature.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 hover:text-blue-400"
-                        >
-                          {feature.name}
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      ) : (
-                        feature.name
-                      )}
-                      <FeatureTooltip description={feature.description} />
-                    </td>
-                    <td className="text-center py-4 px-6">
-                      {feature.individual.included ? (
-                        <div className="flex flex-col items-center">
-                          {feature.displayStyle === "number" ? (
-                            <span className="text-gray-400">{feature.individual.details}</span>
-                          ) : (
-                            <CheckCircle2 className="text-green-700 w-5 h-5" />
-                          )}
-                          {feature.individual.details && feature.displayStyle !== "number" && (
-                            <div className="text-xs text-gray-400 mt-1">
-                              {feature.individual.link ? (
-                                <a
-                                  href={feature.individual.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-1 text-blue-400 hover:underline"
-                                >
-                                  {feature.individual.details}
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              ) : (
-                                feature.individual.details
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
-                      )}
-                    </td>
-                    <td className="text-center py-4 px-6 bg-blue-900/10">
-                      {feature.basic.included ? (
-                        <div className="flex flex-col items-center">
-                          {feature.displayStyle === "number" ? (
-                            <span className="text-gray-400">{feature.basic.details}</span>
-                          ) : (
-                            <CheckCircle2 className="text-green-700 w-5 h-5" />
-                          )}
-                          {feature.basic.details && feature.displayStyle !== "number" && (
-                            <div className="text-xs text-gray-400 mt-1">
-                              {feature.basic.link ? (
-                                <a
-                                  href={feature.basic.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-1 text-blue-400 hover:underline"
-                                >
-                                  {feature.basic.details}
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              ) : (
-                                feature.basic.details
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
-                      )}
-                    </td>
-                    <td className="text-center py-4 px-6">
-                      {feature.growth.included ? (
-                        <div className="flex flex-col items-center">
-                          {feature.displayStyle === "number" ? (
-                            <span className="text-gray-400">{feature.growth.details}</span>
-                          ) : (
-                            <CheckCircle2 className="text-green-700 w-5 h-5" />
-                          )}
-                          {feature.growth.details && feature.displayStyle !== "number" && (
-                            <div className="text-xs text-gray-400 mt-1">
-                              {feature.growth.link ? (
-                                <a
-                                  href={feature.growth.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-1 text-blue-400 hover:underline"
-                                >
-                                  {feature.growth.details}
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              ) : (
-                                feature.growth.details
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <XCircle className="text-red-700 w-5 h-5 mx-auto opacity-50" />
-                      )}
-                    </td>
+        {/* Enhanced Features Comparison */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-300 mb-4">Complete Feature Comparison</h2>
+            <p className="text-blue-200/70 max-w-2xl mx-auto">Every plan includes powerful features to help you grow and engage with your community</p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-indigo-800/30 bg-indigo-950/30 backdrop-blur-md shadow-2xl">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50">
+                    <th className="text-left py-6 px-6 text-blue-200 font-medium text-sm uppercase tracking-wider border-b border-indigo-800/30">Features</th>
+                    <th className="text-center py-6 px-6 text-blue-200 font-medium text-sm uppercase tracking-wider border-b border-indigo-800/30">Individual</th>
+                    <th className="text-center py-6 px-6 text-blue-200 font-medium text-sm uppercase tracking-wider border-b border-indigo-800/30 bg-indigo-800/20">Basic</th>
+                    <th className="text-center py-6 px-6 text-blue-200 font-medium text-sm uppercase tracking-wider border-b border-indigo-800/30">Growth</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {visibleFeatures.map((feature, index) => (
+                    <tr key={index} className={`border-b border-indigo-800/20 hover:bg-indigo-900/20 transition-colors ${index % 2 === 0 ? 'bg-indigo-950/20' : 'bg-transparent'}`}>
+                      <td className="py-5 px-6 text-white flex items-center gap-2">
+                        {feature.link ? (
+                          <a
+                            href={feature.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 hover:text-indigo-400 transition-colors"
+                          >
+                            {feature.name}
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        ) : (
+                          feature.name
+                        )}
+                        <FeatureTooltip description={feature.description} />
+                      </td>
+                      <td className="text-center py-5 px-6">
+                        {feature.individual.included ? (
+                          <div className="flex flex-col items-center">
+                            {feature.displayStyle === "number" ? (
+                              <span className="text-indigo-300">{feature.individual.details}</span>
+                            ) : (
+                              <CheckCircle2 className="text-emerald-500 w-5 h-5" />
+                            )}
+                            {feature.individual.details && feature.displayStyle !== "number" && (
+                              <div className="text-xs text-indigo-300 mt-1">
+                                {feature.individual.link ? (
+                                  <a
+                                    href={feature.individual.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 text-indigo-400 hover:underline"
+                                  >
+                                    {feature.individual.details}
+                                    <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                ) : (
+                                  feature.individual.details
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <XCircle className="text-red-700/70 w-5 h-5 mx-auto opacity-50" />
+                        )}
+                      </td>
+                      <td className="text-center py-5 px-6 bg-indigo-800/10">
+                        {feature.basic.included ? (
+                          <div className="flex flex-col items-center">
+                            {feature.displayStyle === "number" ? (
+                              <span className="text-indigo-300">{feature.basic.details}</span>
+                            ) : (
+                              <CheckCircle2 className="text-emerald-500 w-5 h-5" />
+                            )}
+                            {feature.basic.details && feature.displayStyle !== "number" && (
+                              <div className="text-xs text-indigo-300 mt-1">
+                                {feature.basic.link ? (
+                                  <a
+                                    href={feature.basic.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 text-indigo-400 hover:underline"
+                                  >
+                                    {feature.basic.details}
+                                    <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                ) : (
+                                  feature.basic.details
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <XCircle className="text-red-700/70 w-5 h-5 mx-auto opacity-50" />
+                        )}
+                      </td>
+                      <td className="text-center py-5 px-6">
+                        {feature.growth.included ? (
+                          <div className="flex flex-col items-center">
+                            {feature.displayStyle === "number" ? (
+                              <span className="text-indigo-300">{feature.growth.details}</span>
+                            ) : (
+                              <CheckCircle2 className="text-emerald-500 w-5 h-5" />
+                            )}
+                            {feature.growth.details && feature.displayStyle !== "number" && (
+                              <div className="text-xs text-indigo-300 mt-1">
+                                {feature.growth.link ? (
+                                  <a
+                                    href={feature.growth.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 text-indigo-400 hover:underline"
+                                  >
+                                    {feature.growth.details}
+                                    <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                ) : (
+                                  feature.growth.details
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <XCircle className="text-red-700/70 w-5 h-5 mx-auto opacity-50" />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           <Button
             variant="ghost"
-            className="mt-6 mx-auto flex items-center gap-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-2"
+            className="mt-8 mx-auto flex items-center gap-2 text-indigo-300 hover:text-white hover:bg-indigo-900/30 rounded-lg px-6 py-3 transition-all duration-300 backdrop-blur-sm"
             onClick={() => setShowAllFeatures(!showAllFeatures)}
           >
             {showAllFeatures ? (
@@ -231,43 +360,65 @@ export default function Index() {
           </Button>
         </div>
 
-        {/* FAQ Section */}
-        <div className="max-w-2xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-center mb-8 text-white">Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible className="text-white">
-            {FAQs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-gray-800">
-                <AccordionTrigger className="hover:text-blue-400">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-gray-400">
-                  {faq.link ? (
-                    <div>
-                      {faq.answer}{" "}
-                      <a
-                        href={faq.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:underline inline-flex items-center gap-1"
-                      >
-                        {faq.linkText || "Learn more"}
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
-                  ) : (
-                    faq.answer
-                  )}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        {/* Enhanced FAQ Section */}
+        <div className="max-w-3xl mx-auto mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-300 mb-4">Frequently Asked Questions</h2>
+            <p className="text-blue-200/70">Everything you need to know about our premium services</p>
+          </div>
+
+          <div className="bg-indigo-950/30 backdrop-blur-md rounded-xl border border-indigo-800/30 shadow-2xl overflow-hidden">
+            <Accordion type="single" collapsible className="text-white">
+              {FAQs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border-indigo-800/20 px-2">
+                  <AccordionTrigger className="py-6 px-4 hover:text-indigo-400 transition-colors">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-indigo-200/80 px-4 pb-6">
+                    {faq.link ? (
+                      <div>
+                        {faq.answer}{" "}
+                        <a
+                          href={faq.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-400 hover:underline inline-flex items-center gap-1"
+                        >
+                          Learn more
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    ) : (
+                      faq.answer
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
 
-        {/* Contact Footer */}
-        <div className="text-center">
-          <p className="text-gray-400 mb-4">Need a custom plan for your enterprise?</p>
-          <Button onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")} variant="outline" className="text-white border-gray-700 bg-gray-800">
-            <span className="text-white">Contact Sales</span>
-          </Button>
+        {/* Enhanced CTA Section */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-900/70 to-purple-900/70 p-10 text-center mb-10 shadow-2xl backdrop-blur-md border border-indigo-700/30">
+          <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px] opacity-20"></div>
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600 rounded-full opacity-20 blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-600 rounded-full opacity-20 blur-3xl"></div>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-300 mb-4">Ready to transform your community?</h2>
+            <p className="text-indigo-200 mb-8 max-w-2xl mx-auto">
+              Join the elite creators who are leveraging AI to build engaged, thriving communities.
+            </p>
+            <Button
+              onClick={() => window.open("https://cal.com/kunaal/tigest-discovery-call", "_blank")}
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white px-8 py-6 text-lg font-medium rounded-xl shadow-xl hover:shadow-purple-500/20 transition-all duration-300 border-0"
+            >
+              Schedule Your Discovery Call
+            </Button>
+          </div>
         </div>
+
+        {/* Enhanced Footer */}
+        <footer className="text-center text-indigo-300/50 text-sm backdrop-blur-sm py-6 rounded-lg border border-indigo-800/10">
+          © {new Date().getFullYear()} Tigest. All rights reserved.
+        </footer>
       </div>
     </div>
   );

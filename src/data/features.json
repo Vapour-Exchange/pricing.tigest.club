@@ -54,9 +54,9 @@
   {
     "name": "Premium LLM models",
     "description": "Access to premium LLM models",
-    "individual": { "included": true, "details": "Grok, claud etc" },
-    "basic": { "included": true, "details": "Grok, claud etc, misteral" },
-    "growth": { "included": true, "details": "Grok, claud etc, misteral" }
+    "individual": { "included": true, "details": "Grok, claude etc" },
+    "basic": { "included": true, "details": "Grok, claude, misteral etc." },
+    "growth": { "included": true, "details": "Grok, claude, misteral etc." }
   },
   {
     "name": "Auto Engagement",
