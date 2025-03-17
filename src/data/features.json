@@ -1,24 +1,27 @@
 [
   {
     "name": "Reply Agent",
-    "description": "AI agents that automatically reply to your community messages",
+    "description": "Turn your account to reply guy",
+    "link": "https://docs.tigest.club/Offerings/reply_agents",
     "individual": { "included": true, "details": "1 agent, 60 replies/day" },
     "basic": { "included": true, "details": "1 agent, 100 replies/day" },
     "growth": { "included": true, "details": "3 agents, 100 replies/day" }
   },
   {
     "name": "Mention Agent",
-    "description": "AI agents that respond to social media mentions of your brand",
+    "description": "Your X account replies whenever mentioned",
+    "link": "https://docs.tigest.club/Offerings/mention_agent",
     "individual": { "included": true, "details": "1 agent, 50 mentions/day" },
     "basic": { "included": true, "details": "1 agent, 100 mentions/day" },
     "growth": { "included": true, "details": "2 agents, 100 mentions/day" }
   },
   {
     "name": "Raid Agent",
-    "description": "AI agents that manage community raids and events",
+    "description": "Build for community raids",
+    "link": "https://docs.tigest.club/Offerings/raid_agent_for_community",
     "individual": { "included": true, "details": "Up to 1000 members" },
     "basic": { "included": true, "details": "No limit" },
-    "growth": { "included": true, "details": "No cap" }
+    "growth": { "included": true, "details": "No limit" }
   },
   {
     "name": "Onboarding Time",
@@ -29,16 +32,14 @@
   },
   {
     "name": "Lists per agent",
-    "description": "Number of separate lists each agent can manage",
-    "displayStyle": "number",
+    "description": "Number of separate lists each agent can reply to",
     "individual": { "included": true, "details": "2" },
     "basic": { "included": true, "details": "5" },
     "growth": { "included": true, "details": "5" }
   },
   {
     "name": "Personas per agent",
-    "description": "Different AI personalities your agents can use",
-    "displayStyle": "number",
+    "description": "Different AI personalities to engage with different lists",
     "individual": { "included": true, "details": "2" },
     "basic": { "included": true, "details": "3" },
     "growth": { "included": true, "details": "3" }
@@ -52,56 +53,60 @@
   },
   {
     "name": "Premium LLM models",
-    "description": "Access to advanced AI language models for better responses",
-    "individual": { "included": false },
-    "basic": { "included": true },
-    "growth": { "included": true }
+    "description": "Access to premium LLM models",
+    "individual": { "included": true, "details": "Grok, claud etc" },
+    "basic": { "included": true, "details": "Grok, claud etc, misteral" },
+    "growth": { "included": true, "details": "Grok, claud etc, misteral" }
   },
   {
     "name": "Auto Engagement",
-    "description": "Automated engagement with your community members",
+    "description": "Automated engagement from our swarm of agents",
+    "link": "https://docs.tigest.club/Offerings/agent_advocacy",
     "individual": { "included": false },
     "basic": { "included": true, "details": "10 agents" },
     "growth": { "included": true, "details": "15 agents" }
   },
+
   {
     "name": "Hire Engagement Functionality",
     "description": "Ability to hire additional engagement services",
+    "link": "https://docs.tigest.club/Offerings/hire_engagement",
     "individual": { "included": false },
     "basic": { "included": false },
-    "growth": { "included": true, "details": "10 times/month" }
+    "growth": { "included": true, "details": "15 times/month" }
   },
   {
     "name": "Access to Social Graph",
-    "description": "View and analyze your community's social connections",
+    "description": "Find real engaging people on X to engage with",
+    "link": "https://docs.tigest.club/Offerings/social_graph_(beta)",
     "individual": { "included": false },
     "basic": { "included": true },
     "growth": { "included": true }
   },
   {
     "name": "Telegram Community Agents",
-    "description": "AI agents that work within Telegram communities",
+    "description": "Need Agents in telegram to moderate your community?",
     "individual": { "included": false },
     "basic": { "included": true, "details": "up to 4" },
-    "growth": { "included": true, "details": "up to 4" }
+    "growth": { "included": true, "details": "up to 6" }
   },
   {
     "name": "Access to Post Suggestions",
-    "description": "AI-generated content ideas for your community",
+    "description": "Get post suggestions for your niche",
     "individual": { "included": false },
     "basic": { "included": false },
     "growth": { "included": true }
   },
   {
     "name": "Analytics Access",
-    "description": "Detailed metrics and performance data for your community",
+    "description": "Detailed metrics and performance data for your X performance",
     "individual": { "included": false },
     "basic": { "included": false },
     "growth": { "included": true }
   },
   {
     "name": "Giveaway for Community",
-    "description": "Budget for community rewards and incentives",
+    "description": "Keep your community on top of their reply game",
     "individual": { "included": false },
     "basic": { "included": false },
     "growth": { "included": true, "details": "up to $3000" }
