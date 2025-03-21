@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { FeatureTooltip } from "@/components/FeatureTooltip";
-import { CheckCircle2, XCircle, ChevronDown, ChevronUp, ExternalLink, Sparkles } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronDown, ChevronUp, ExternalLink, Sparkles, BookOpen } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -45,6 +45,58 @@ export default function Index() {
       </div>
 
       <div className="container relative mx-auto px-4 py-20">
+       
+        <div className="absolute top-4 right-4 flex items-center gap-5 z-20">
+          <a 
+            href="https://tigest.club/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group relative overflow-hidden flex items-center gap-2.5 text-white font-medium transition-all duration-300 px-5 py-2.5 rounded-2xl bg-gradient-to-br from-indigo-600/80 to-purple-700/80 hover:from-indigo-500/90 hover:to-purple-600/90 backdrop-blur-md shadow-lg border border-indigo-500/30 hover:shadow-indigo-500/20 hover:shadow-xl"
+          >
+            
+            <div className="absolute inset-0 flex items-center justify-center opacity-30">
+              <div className="absolute w-8 h-8 bg-white rounded-full blur-xl group-hover:scale-150 transition-all duration-700 delay-100 opacity-0 group-hover:opacity-30"></div>
+              <div className="absolute w-4 h-4 bg-blue-400 rounded-full blur-md -translate-x-6 translate-y-4 group-hover:translate-x-10 group-hover:-translate-y-4 transition-all duration-500"></div>
+              <div className="absolute w-3 h-3 bg-purple-400 rounded-full blur-md translate-x-7 -translate-y-2 group-hover:-translate-x-10 group-hover:translate-y-6 transition-all duration-700"></div>
+            </div>
+            
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500 group-hover:duration-200"></div>
+            
+          <div className="relative grid place-items-center w-7 h-7 rounded-full bg-gradient-to-br from-indigo-400/80 to-purple-500/80 group-hover:from-indigo-300/90 group-hover:to-purple-400/90 transition-all duration-300">
+              <Sparkles className="w-3.5 h-3.5 text-white" />
+            </div>
+            
+          <span className="relative">
+              Explore Tigest
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
+            </span>
+          </a>
+          
+          <a href="https://docs.tigest.club/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group relative overflow-hidden flex items-center gap-2.5 text-white font-medium transition-all duration-300 px-5 py-2.5 rounded-2xl bg-gradient-to-br from-purple-600/80 to-indigo-700/80 hover:from-purple-500/90 hover:to-indigo-600/90 backdrop-blur-md shadow-lg border border-purple-500/30 hover:shadow-purple-500/20 hover:shadow-xl"
+          >
+            
+          <div className="absolute inset-0 flex items-center justify-center opacity-30">
+              <div className="absolute w-8 h-8 bg-white rounded-full blur-xl group-hover:scale-150 transition-all duration-700 delay-100 opacity-0 group-hover:opacity-30"></div>
+              <div className="absolute w-4 h-4 bg-purple-400 rounded-full blur-md -translate-x-6 translate-y-4 group-hover:translate-x-10 group-hover:-translate-y-4 transition-all duration-500"></div>
+              <div className="absolute w-3 h-3 bg-blue-400 rounded-full blur-md translate-x-7 -translate-y-2 group-hover:-translate-x-10 group-hover:translate-y-6 transition-all duration-700"></div>
+            </div>
+            
+           <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500 group-hover:duration-200"></div>
+            
+        <div className="relative grid place-items-center w-7 h-7 rounded-full bg-gradient-to-br from-purple-400/80 to-indigo-500/80 group-hover:from-purple-300/90 group-hover:to-indigo-400/90 transition-all duration-300">
+              <BookOpen className="w-3.5 h-3.5 text-white" />
+            </div>
+            
+            <span className="relative">
+              Documentation
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
+            </span>
+          </a>
+        </div>
+
         {/* Enhanced hero section */}
         <div className="text-center space-y-6 mb-20 animate-fade-in">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-sm font-medium mb-4 backdrop-blur-md shadow-lg">
@@ -415,9 +467,53 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Enhanced Footer */}
-        <footer className="text-center text-indigo-300/50 text-sm backdrop-blur-sm py-6 rounded-lg border border-indigo-800/10">
-          © {new Date().getFullYear()} Tigest. All rights reserved.
+        <footer className="text-center text-indigo-300/50 text-sm backdrop-blur-sm py-8 rounded-lg border border-indigo-800/10 relative overflow-hidden">
+         
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/50 via-purple-950/50 to-indigo-950/50"></div>
+          <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:16px_16px]"></div>
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+          
+          <div className="relative z-10">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+              <a 
+                href="https://tigest.club/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex items-center gap-2 text-indigo-300 hover:text-white transition-all duration-300"
+              >
+                <span className="bg-indigo-950/80 p-2 rounded-lg border border-indigo-800/30 group-hover:border-indigo-600/50 shadow-inner transition-all duration-300">
+                  <Sparkles className="w-5 h-5 text-indigo-400 group-hover:text-indigo-300" />
+                </span>
+                <span className="relative font-medium group-hover:translate-x-1 transition-transform duration-300">
+                  Tigest Platform
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </span>
+              </a>
+              
+              <span className="hidden sm:inline text-indigo-700">•</span>
+              
+              <a 
+                href="https://docs.tigest.club/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex items-center gap-2 text-indigo-300 hover:text-white transition-all duration-300"
+              >
+                <span className="bg-indigo-950/80 p-2 rounded-lg border border-indigo-800/30 group-hover:border-purple-600/50 shadow-inner transition-all duration-300">
+                  <BookOpen className="w-5 h-5 text-purple-400 group-hover:text-purple-300" />
+                </span>
+                <span className="relative font-medium group-hover:translate-x-1 transition-transform duration-300">
+                  Developer Documentation
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </span>
+              </a>
+            </div>
+            
+            <div className="text-indigo-400/60 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              <span>© {new Date().getFullYear()} Tigest.Club</span>
+              <span className="hidden sm:inline text-indigo-700/30">|</span>
+              <span>Enterprise-grade AI Community Management</span>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
