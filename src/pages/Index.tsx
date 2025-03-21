@@ -502,7 +502,7 @@ export default function Index() {
                   <BookOpen className="w-5 h-5 text-purple-400 group-hover:text-purple-300" />
                 </span>
                 <span className="relative font-medium group-hover:translate-x-1 transition-transform duration-300">
-                  Developer Documentation
+                  Documentation
                   <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </span>
               </a>
